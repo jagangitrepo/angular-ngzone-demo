@@ -6,9 +6,9 @@ import {NgIf} from '@angular/common';
   selector: 'ng-zone-demo',
   template: `
     <h2>Demo: NgZone</h2>
-    <div>
+    <!--<div>
       <img src="asset/ZoneJS.png">HI</img>
-    </div>
+    </div>-->
 
     <p>Progress: {{progress}}%</p>
     <p *ngIf="progress >= 100">Done processing {{label}} of Angular zone!</p>
