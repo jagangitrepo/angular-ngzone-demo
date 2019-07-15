@@ -1,4 +1,4 @@
-import {Component, NgZone, OnChanges, SimpleChanges, DoCheck
+import {Component, NgZone, OnChanges, SimpleChanges, DoCheck, ChangeDetectionStrategy
 } from '@angular/core';
 import {NgIf} from '@angular/common';
 
@@ -13,6 +13,7 @@ import {NgIf} from '@angular/common';
     <button (click)="processWithinAngularZone()">Process within Angular zone</button>
     <button (click)="processOutsideOfAngularZone()">Process outside of Angular zone</button>
   `,
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class NgZoneDemo implements OnChanges, DoCheck
  {
