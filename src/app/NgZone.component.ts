@@ -7,7 +7,7 @@ import {NgIf} from '@angular/common';
   template: `
     <h2>Demo: NgZone</h2>
     <div>
-      <img src="asset/ZoneJS.png">HI</img>
+      <img src="../asset/ZoneJS.png">HI</img>
     </div>
 
     <p>Progress: {{progress}}%</p>
