@@ -1,6 +1,7 @@
-import {Component, NgZone, OnChanges, SimpleChanges, DoCheck, ChangeDetectionStrategy
+import {
+  Component, NgZone, OnChanges, SimpleChanges, DoCheck, ChangeDetectionStrategy
 } from '@angular/core';
-import {NgIf} from '@angular/common';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'ng-zone-demo',
@@ -15,15 +16,15 @@ import {NgIf} from '@angular/common';
 
     <button (click)="processWithinAngularZone()">Process within Angular zone</button>
     <button (click)="processOutsideOfAngularZone()">Process outside of Angular zone</button>
+    <button (click)="runTask()">runTask</button>
   `,
   //changeDetection:ChangeDetectionStrategy.OnPush
 })
-export class NgZoneDemo implements OnChanges, DoCheck
- {
+export class NgZoneDemo implements OnChanges, DoCheck {
   progress: number = 0;
   label: string;
 
-  constructor(private _ngZone: NgZone) {}
+  constructor(private _ngZone: NgZone) { }
 
   // Loop inside the Angular zone
   // so the UI DOES refresh after each setTimeout cycle
@@ -66,4 +67,23 @@ export class NgZoneDemo implements OnChanges, DoCheck
     // ...
     console.log("ngDoCheck :");
   }
+
+  runTask() {
+    console.log('script start');
+
+    setTimeout(function () {
+      console.log('setTimeout');
+    }, 0);
+
+    Promise.resolve().then(function () {
+      console.log('promise1');
+    });
+
+    console.log('script end');
+
+    Promise.resolve().then(function () {
+      console.log('promise 2');
+    });
+  }
+
 }
